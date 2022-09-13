@@ -25,10 +25,13 @@
 
 % Definiert die Farben für Tabellen im DHBW-Style
 \usepackage[table]{xcolor}
-\definecolor{tableHeading}{gray}{0.672}
-\definecolor{tableOdd}{gray}{0.945}
-\definecolor{tableEven}{gray}{0.859}
-\arrayrulecolor{white}
+\definecolor{tableHeading}{HTML}{FFEB00}
+\definecolor{tableOdd}{HTML}{AAAAAA} %// TODO: Farben anpassen
+\definecolor{tableEven}{HTML}{777777} %// TODO: Farben anpassen
+% \definecolor{arrayRule}{HTML}{444444}
+% \arrayrulecolor{arrayRule}
+\def\arraystretch{1.5}
+\rowcolors{2}{tableOdd}{tableEven}
 
 % Schriftart Carlito. Sie ist fast identisch mit Calibri.
 % Calibri ist auf Linux und MacOS nicht verfügbar. 
@@ -64,6 +67,8 @@
 \usepackage[hidelinks, unicode]{hyperref}
 \hypersetup{pdftitle = {\thesisTitle}, pdfauthor = {\name}}
 
+% Normale Schriftart für URLs
+\renewcommand{\UrlFont}{}
 
 % Befehl für ein einleitendes Zitat
 \newcommand{\epigraph}[2]{
