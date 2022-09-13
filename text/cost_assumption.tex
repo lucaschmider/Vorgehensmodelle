@@ -1,1 +1,57 @@
 \section{Kostenschätzungsmodelle}
+
+\subsection{Constructive Cost Model}
+Mithilfe des Constructive Cost Model (\textit{COCOMO}) soll auf algorithmische Weise der Aufwand und daraus resultierend auch die Kosten für die Entwicklung eines Softwareprojekts berechnet werden. Das Modell wurde im Jahr 1981 erstmals beschrieben, weshalb die verwendete Datengrundlage teilweise veraltet ist und damit Schwachstellen aufweist.
+
+Aus verschiedenen firmenspeziefischen Informationen und Softwaremetriken leitet das Modell den Aufwand in Personenmonaten ab. Zentrale Softwaremetrik stellt dabei die Zahl der Code-Zeilen in \textit{KDSI} dar. Es gilt $1 KDSI := 1000 Instruktionen$, wobei nur Anweisungen berücksichtigt werden, welche an den Kunden ausgeliefert werden. So wird etwa der Aufwand für \textit{Unit-Tests} vernachlässigt.
+
+Der Algorithmus basiert auf Erfahrungswerten, die in Großunternehmen zur Entstehungszeit gewonnen wurden. Um die Anwendbarkeit sicherzustellen, müssen einige Bedingungen erfüllt werden, welche vom Modell als Annahme getroffen werden.
+
+\begin{itemize}
+    \item Die Instruktionszahl ist der primäre Kostenfaktor
+    \item Der primäre Aufwand entsteht in der Entwicklungsperiode
+    \item Das Management ist sehr gut
+    \item Die Spezifikation erfährt keine grundlegenden Änderungen
+\end{itemize}
+
+Bei der Abschätzung der Instruktionszahl ist die verwendete Programmiersprache zu beachten, sowie generierter Code auszuschließen. An dieser Stelle spielt die veraltete Datengrundlage im Besonderen eine Rolle, da zur Definitionszeit noch Lochkarten verwendet wurden, während im Moment objektorientierte Sprachen vorherschen.
+
+Nach der Abschätzung der Instruktionszahl, muss der richtige Modus gewählt werden. Dabei stehen für einfache Projekte der \textit{organic-}, für mittlere der \textit{semi-detached-} und für komplexe der \textit{embedded-Mode} zur Verfügung. Der Modus ist ausschlaggebend für die beiden Paramter $m$ und $n$ in der folgenden Formel zur Aufwandsberechnung.
+
+$$PM := m * (KDSI)^n$$
+
+Beide Parameter steigen mit der Komplexität des Projekts. Für den Bearbeitungszeitraum kann das Ergebnis dieser Formel nicht schlicht durch die Zahl der beteiligten Teammitglieder geteilt werden, da die mögliche Parallelisierung bregrenzt ist. Um die Probleme von \textit{COCOMO} zu beheben, stehen Weiterentwicklungen zur Verfügung, welcge Korrekturfaktoren zur Verfügung stellen.
+
+\subsection{Function Point Analysis}
+Wendet man die \textit{Function Point Analysis} an, so ermittelt man die funktionale Größe einer Software aus Anwendersicht in Function Points (\textit{FC}). Die Software wird dabei als Blackbox angesehen, nichtfunktionale Anforderungen also nicht berücksichtigt. Für die Ermittlung muss das Produkt zunächst in seine Base Functional Components (\textit{BFCs}) zerlegt werden und deren funktionale isoliert in Erfahrung gebracht werden. Dabei sind verschiedene Typen definiert:
+
+\begin{itemize}
+    \item \textbf{Externe Ausgabe}, die Software liefert Informationen eigenständig an den Anwender
+    \item \textbf{Externe Eingabe}, der Anwender liefert Informationen an die Software
+    \item \textbf{Externe Abfrage}, die Software beantwortet dem Anwender eine Frage
+    \item \textbf{Interne Geschäftsentität}, die Software hält Informationen bereit
+    \item \textbf{Externe Geschäftsentität}, die Software nutzt Informationen aus einem Fremdsystem
+\end{itemize}
+
+Abhängig vom BFC-Typ spielen die Zahl der Datenelemente und der tangierten Entitäten, eine unterschiedliche Rolle. Die Function Points eines Moduls sind illustrativ in Tabelle \ref{tabelle_FPAExterneEingaben} für den BFC-Typ \textit{Externe Eingabe} dargestellt.
+
+% // TODO: Fehler finden
+% \begin{table}[H]
+%     \centering
+%     \begin{tabulary}{0.9\textwidth}{|p{0.225\textwidth}|p{0.0.225\textwidth}|p{0.225\textwidth}|p{0.223\textwidth}|}
+%     \hline 
+%     \rowcolor{tableHeading} Externe Eingabe & höchstens vier Datenelemente & mehr als vier und höchstens 15 Datenelemente & mehr als 15 Datenelemente \\ \hline 
+%     höchstens eine tangierte Entität & 3 FP & 3 FP & 4 FP \\ \hline
+%     zwei tangierte Entitäten & 3 FP & 4 FP & 6 FP \\ \hline
+%     mehr als zwei tangierte Entitäten & 4 FP & 6 FP & 6 FP \\ \hline
+%     \end{tabulary} 
+%     \caption[Function Points für ein Modul vom Typ externe Eingabe]{Function Points für ein Modul vom Typ externe Eingabe}
+%     \label{tabelle_FPAExterneEingaben}
+% \end{table}
+
+Die Summe aller \textit{FPs} wird mit Unadjusted Function Points (\textit{UFP})bezeichnet und gibt bereits Auskunft über die funktionale Größe der Software. Um Kriterien wie die Qualität miteinzubeziehen, bestehen 14 Systemmerkmale, die je nach Einfluss auf einer Skala von null bis fünf bewertet werden. Die Summe bezeichnet dann ihrerseits den Total Degree of Influence \textit{TDI}, mit dem die Adjusted Function Points \textit{AFP} bestimmt werden können. Diese Zahl macht eine Aussage über den tatsächlichen Aufwand des Systems. Es gillt 
+$$AFP := \left (\frac{TDI}{100}+0,65 \right ) * UFP$$
+
+Das Modell findet abermals durch sein Alter Einschränkungen, da etwa die Systemmerkmale heute überholt sind. Außerdem ist der direkte Zusammenhang der Function Points zum Aufwand in Frage zu stellen.
+
+Die bereits erwähnte Weiterentwicklung von \textit{COCOMO} (\textit{COCOMO II}) stellt eine Kombination der beiden vorgestellten Kostenschätzungsmodelle dar.
