@@ -35,19 +35,17 @@ Wendet man die \textit{Function Point Analysis} an, so ermittelt man die funktio
 
 Abhängig vom BFC-Typ spielen die Zahl der Datenelemente und der tangierten Entitäten, eine unterschiedliche Rolle. Die Function Points eines Moduls sind illustrativ in Tabelle \ref{tabelle_FPAExterneEingaben} für den BFC-Typ \textit{Externe Eingabe} dargestellt.
 
-% // TODO: Fehler finden
-% \begin{table}[H]
-%     \centering
-%     \begin{tabulary}{0.9\textwidth}{|p{0.225\textwidth}|p{0.0.225\textwidth}|p{0.225\textwidth}|p{0.223\textwidth}|}
-%     \hline 
-%     \rowcolor{tableHeading} Externe Eingabe & höchstens vier Datenelemente & mehr als vier und höchstens 15 Datenelemente & mehr als 15 Datenelemente \\ \hline 
-%     höchstens eine tangierte Entität & 3 FP & 3 FP & 4 FP \\ \hline
-%     zwei tangierte Entitäten & 3 FP & 4 FP & 6 FP \\ \hline
-%     mehr als zwei tangierte Entitäten & 4 FP & 6 FP & 6 FP \\ \hline
-%     \end{tabulary} 
-%     \caption[Function Points für ein Modul vom Typ externe Eingabe]{Function Points für ein Modul vom Typ externe Eingabe}
-%     \label{tabelle_FPAExterneEingaben}
-% \end{table}
+\begin{table}[H]
+    \centering
+    \begin{tabulary}{0.9\textwidth}{|p{0.225\textwidth}|p{0.225\textwidth}|p{0.225\textwidth}|p{0.225\textwidth}|} \hline 
+    \rowcolor{tableHeading} Externe Eingabe & höchstens vier Datenelemente & mehr als vier und höchstens 15 Datenelemente & mehr als 15 Datenelemente \\ \hline 
+    höchstens eine tangierte Entität & 3 FP & 3 FP & 4 FP \\ \hline
+    zwei tangierte Entitäten & 3 FP & 4 FP & 6 FP \\ \hline
+    mehr als zwei tangierte Entitäten & 4 FP & 6 FP & 6 FP \\ \hline
+    \end{tabulary} 
+    \caption[Function Points für ein Modul vom Typ externe Eingabe]{Function Points für ein Modul vom Typ externe Eingabe}
+    \label{tabelle_FPAExterneEingaben}
+\end{table}
 
 Die Summe aller \textit{FPs} wird mit Unadjusted Function Points (\textit{UFP})bezeichnet und gibt bereits Auskunft über die funktionale Größe der Software. Um Kriterien wie die Qualität miteinzubeziehen, bestehen 14 Systemmerkmale, die je nach Einfluss auf einer Skala von null bis fünf bewertet werden. Die Summe bezeichnet dann ihrerseits den Total Degree of Influence \textit{TDI}, mit dem die Adjusted Function Points \textit{AFP} bestimmt werden können. Diese Zahl macht eine Aussage über den tatsächlichen Aufwand des Systems. Es gillt 
 $$AFP := \left (\frac{TDI}{100}+0,65 \right ) * UFP$$
