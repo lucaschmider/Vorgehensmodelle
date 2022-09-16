@@ -18,7 +18,7 @@ Bei der Abschätzung der Instruktionszahl ist die verwendete Programmiersprache 
 
 Nach der Abschätzung der Instruktionszahl, muss der richtige Modus gewählt werden. Dabei stehen für einfache Projekte der \textit{organic-}, für mittlere der \textit{semi-detached-} und für komplexe der \textit{embedded-Mode} zur Verfügung. Der Modus ist ausschlaggebend für die beiden Paramter $m$ und $n$ in der folgenden Formel zur Aufwandsberechnung.
 
-$$PM := m * (KDSI)^n$$
+$$PM := m \cdot (KDSI)^n$$
 
 Beide Parameter steigen mit der Komplexität des Projekts. Für den Bearbeitungszeitraum kann das Ergebnis dieser Formel nicht schlicht durch die Zahl der beteiligten Teammitglieder geteilt werden, da die mögliche Parallelisierung bregrenzt ist. Um die Probleme von \textit{COCOMO} zu beheben, stehen Weiterentwicklungen zur Verfügung, welcge Korrekturfaktoren zur Verfügung stellen.
 
@@ -48,8 +48,24 @@ Abhängig vom BFC-Typ spielen die Zahl der Datenelemente und der tangierten Enti
 \end{table}
 
 Die Summe aller \textit{FPs} wird mit Unadjusted Function Points (\textit{UFP})bezeichnet und gibt bereits Auskunft über die funktionale Größe der Software. Um Kriterien wie die Qualität miteinzubeziehen, bestehen 14 Systemmerkmale, die je nach Einfluss auf einer Skala von null bis fünf bewertet werden. Die Summe bezeichnet dann ihrerseits den Total Degree of Influence \textit{TDI}, mit dem die Adjusted Function Points \textit{AFP} bestimmt werden können. Diese Zahl macht eine Aussage über den tatsächlichen Aufwand des Systems. Es gillt 
-$$AFP := \left (\frac{TDI}{100}+0,65 \right ) * UFP$$
+$$AFP := \left (\frac{TDI}{100}+0,65 \right ) \cdot UFP$$
 
 Das Modell findet abermals durch sein Alter Einschränkungen, da etwa die Systemmerkmale heute überholt sind. Außerdem ist der direkte Zusammenhang der Function Points zum Aufwand in Frage zu stellen.
 
 Die bereits erwähnte Weiterentwicklung von \textit{COCOMO} (\textit{COCOMO II}) stellt eine Kombination der beiden vorgestellten Kostenschätzungsmodelle dar.
+
+\subsection{Einordnung in den Ordnungsrahmen der HELENA-Studie}
+Im Ordnungsrahmen der Studie handelt es sich um eine \textit{Practice}. Grund ist, dass mit beiden Ansätzen kein Projekt umgesetzt werden kann. Vielmehr könnten die beiden der erste Teil eines Standartprozesses sein, mit dem entschieden wird, ob es ein Projekt wert ist, umgesetzt zu werden.
+
+Die beiden Kostenschätzungsmodelle eignen sich vor allem zur Vorbereitung von Projekten, die einen hohen Aufwand haben. Auf das Bauwesen angewandt, sind sie eher bei einem Hauptstadtflughafen als bei einem Wintergarten für das eigene Einfamilienhaus geeignet. Es gibt einige Cluster in der Aufteilung der Studie, die auf eine Anwendung in Großprojekten nahelegen. Im Detail sind das die folgenden Cluster:
+
+\begin{itemize}
+    \item \textbf{Cluster 1}, denn mit SAFe werden mehrere Scrumteams auf ein größeres Projekt angesetzt
+    \item \textbf{Cluster 2}, denn mit dem V-Modell sind hohe Kosten inhärent verbunden
+    \item \textbf{Cluster 4}, auch mit LeSS werden große Teams ermöglicht. Das Cluster enthält außerdem Testmethoden, mit denen ebenfalls das Risiko geschmälert wird
+\end{itemize}
+
+Für Projekte, die Methoden aus dem Cluster 3 verwenden, kann die Kostenschätzung unter Umständen auch sinnvoll sein, aber nicht auf einer allgemeingültigen Basis. Methoden dieses Clusters sind insbesondere bei der Instandhaltung von Software angesiedelt. Gleiches gilt auch für Cluster 5, jedoch aus dem Grund, dass dieses Cluster eine nahezu reine Implementierung von Scrum beschreibt, was nicht auf ein Großprojekt hindeutet.
+
+\subsection{Kostenschätzung geht über die Studie hinaus}
+Kostenschätzungsmodelle sind kein Bestandteil der vorliegenden Studie. So werden weder die beiden beschriebenen noch irgendwelche weiteren Anätze in der Studie erwähnt und sie sind auch kein inhärenter Bestandteil eines beschriebenen Ansatzes. Kombinationsmöglichkeiten bestehen jedoch, wobei an dieser Stelle die Datengrundlage fehlt.
