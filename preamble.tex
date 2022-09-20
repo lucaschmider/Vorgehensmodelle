@@ -26,10 +26,10 @@
 % Definiert die Farben für Tabellen im DHBW-Style
 \usepackage[table]{xcolor}
 \definecolor{tableHeading}{HTML}{FFEB00}
-\definecolor{tableOdd}{HTML}{AAAAAA} %// TODO: Farben anpassen
-\definecolor{tableEven}{HTML}{777777} %// TODO: Farben anpassen
-% \definecolor{arrayRule}{HTML}{444444}
-% \arrayrulecolor{arrayRule}
+\definecolor{tableOdd}{HTML}{FFFFFF}
+\definecolor{tableEven}{HTML}{F2F2F2}
+\definecolor{arrayRule}{HTML}{BFBFBF}
+\arrayrulecolor{arrayRule}
 \def\arraystretch{1.5}
 \rowcolors{2}{tableOdd}{tableEven}
 
@@ -58,6 +58,8 @@
 \usepackage{setspace}
 \setstretch{1.5}
 
+\setlength{\itemsep}{5pt}
+
 % Literaturverzeichnis
 \usepackage[natbib=true, backend=biber, style=authoryear, dashed=false]{biblatex}
 \DeclareBibliographyAlias{interview}{misc}
@@ -79,3 +81,4 @@
         \hfill #2
     \end{quote}\end{quote}
 }
+\setcounter{section}{-1}
